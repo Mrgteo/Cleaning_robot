@@ -1,0 +1,17 @@
+[Unit]
+Description=FRP Client Service
+Documentation=https://github.com/fatedier/frp
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=sunrise
+ExecStart=/usr/bin/frpc -c /home/sunrise/rj/qs/frpc.ini
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
